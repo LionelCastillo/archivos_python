@@ -9,6 +9,7 @@
 
 # Ejercicios con diccionarios
 
+from ast import Break
 import csv
 
 
@@ -32,6 +33,12 @@ def ej1():
     # Una vez armado el diccionario imprimirlo en pantalla con print
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
+    stock = {}
+    stock['torillos'] = 100
+    stock['tuercas'] = 150
+    stock['arandelas'] = 300
+    for k,v in stock.items():
+        print('stock de {} : {}'.format(k, v))
 
 
 def ej2():
@@ -40,7 +47,7 @@ def ej2():
     # como una base de datos. Comenzaremos con un diccionario de stock
     # de nuestros productos en cero:
     
-    strock = {'tornillos': 0, 'tuercas': 0, 'arandelas': 0}
+    stock = {'tornillos': 0, 'tuercas': 0, 'arandelas': 0}
 
     # Paso 1:
     # Crear un bucle utilizando while que se ejecute de forma infinita
@@ -66,6 +73,20 @@ def ej2():
     # imprimir en pantalla con print el diccionario con el stock final
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
+    while True:
+        print('el producto ingresado es:')
+        producto = input('')
+        if producto == 'FIN':
+            break
+        elif producto in stock:
+            print('ingrese la cantidad de {} a sumar al stock'.format(producto))
+            cantidad = int(input(''))
+            stock[producto] += cantidad
+        else:
+            print('el producto no se encuentra en el stock, ingrese otro')  
+
+    for k,v in stock.items():
+        print('el stock de {} es: {}'.format(k, v))          
 
 
 if __name__ == '__main__':
